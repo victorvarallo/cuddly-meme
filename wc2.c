@@ -3,13 +3,17 @@
 int main() {
 
 	FILE *arquivo;
-	int c;
-
+	   
+    char arqn[51];
+    int c;    
     int cl = 0;
     int cb = 0;
     int cp = 0;
 
-	arquivo = fopen("wc2.c", "r");
+    printf("nome do arquivo(com extensao):  ");
+	scanf("%s",arqn);       //ler arquivo
+
+	arquivo = fopen(arqn, "r");    //abrir arquivo digitado
 
 	c = getc(arquivo);
     while( c != -1 )
