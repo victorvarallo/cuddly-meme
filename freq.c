@@ -7,6 +7,7 @@ int main()
     int s[SIZE];
     int j;
     int total = 0;
+    FILE *arquivo;
 
     for( j = 0 ; j < SIZE ; j++ ) {
         s[j] = 0;
