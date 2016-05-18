@@ -9,6 +9,8 @@ int main()
     int total = 0;
     FILE *arquivo;
 
+	//fopen("exemplo.txt","r");
+
     for( j = 0 ; j < SIZE ; j++ ) {
         s[j] = 0;
     }
@@ -18,7 +20,9 @@ int main()
     s['B']++;
     s['A']++;
 
-    //
+	//fclose(arquivo);
+
+ 
 
     for( j = 0 ; j < SIZE ; j++ ) {
         total += s[j];
