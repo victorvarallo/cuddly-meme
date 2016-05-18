@@ -6,7 +6,7 @@ int main() {
 	FILE *arquivo;
 	   
     char arqn[51];
-    int c,i;    
+    int c,i = 0;    
     int cl = 0;
     int cb = 0;
     int cp = 0;
