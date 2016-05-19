@@ -1,22 +1,20 @@
 #include <stdio.h>
 
 
-int main() {
+int main(int argc, char* argv[]) {
 
 	FILE *arquivo;
 	   
-    char arqn[51];
-    int c,i = 0;    
-    int cl = 0;
-    int cb = 0;
-    int cp = 0;
+    int c,j,i = 0;    
+    int cl = 0,cb = 0,cp = 0;
+    int cltot = 0,cbtot = 0,cptot = 0;
 
     
 
-    printf("nome do arquivo(com extensao):  ");
-	scanf("%s",arqn);                         //ler arquivo
-
-	arquivo = fopen(arqn, "r");               //abrir arquivo digitado
+	for (j=1;j<argc;j++)
+	{
+	
+    arquivo = fopen(argv[j], "r");               //abrir arquivo digitado
 
 	c = getc(arquivo);
     while( c != -1 )
@@ -39,11 +37,26 @@ int main() {
 		c = getc(arquivo);
 	}
 
-    printf("L=%i P=%i B=%i\n", cl, cp, cb);
+    printf("L=%i P=%i B=%i %s\n", cl, cp, cb,argv[j]);
+    
+    //contadores para exibir o total   
+    cbtot += cb;    
+    cptot += cp;
+    cltot += cl;
 
+    cb = 0;
+    cp = 0;
+    cl = 0;
 
 	fclose(arquivo);
+	}	
 
+    if(argc>2)
+    {
+        printf("\ntotal de linhas:%d",cltot);   
+        printf("\ntotal de palavras:%d",cptot);
+        printf("\ntotal de caracteres:%d\n",cbtot);
+    }
 
 	return 0;
 }
