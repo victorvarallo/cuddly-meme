@@ -46,7 +46,7 @@ int main (int argc, char* argv[]) {
     printf("%8s%12s%19s\n", "Elemento", "Valor", "Ocorrências");
 
 //Monta a tabela
-    for (j = 0; j < SIZE; j++)
+    for (j = 11; j < SIZE; j++)
     {
         if (s[j] != 0)
         {
