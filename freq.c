@@ -1,41 +1,67 @@
+/*Henrique Bittencourt h.bittencourt@acad.pucrs.br*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #define SIZE 256
 
-int main()
-{
-    int s[SIZE];
-    int j;
-    int total = 0;
+int main (int argc, char* argv[]) {
+
     FILE *arquivo;
 
-	//fopen("exemplo.txt","r");
+    int j, c, s[SIZE];
+	int total = 0;
 
-    for( j = 0 ; j < SIZE ; j++ ) {
+    arquivo = fopen(argv[1], "r");
+
+//erro ao abrir o arquivo
+
+    if (arquivo == NULL)
+    {
+        printf ("Erro ao abrir o arquivo\n");
+        return 1;
+    }
+	//Zera o vetor
+
+    for (j = 0; j < SIZE; j++)
+    {
         s[j] = 0;
     }
 
-    // TODO: ler de arquivo!
-    s['A']++;
-    s['B']++;
-    s['A']++;
+    c = getc(arquivo);
 
-	//fclose(arquivo);
+    while (c != -1)
+    {
+//Monta a tabela Ascii e verifica se existe correspondência no arquivo
+        for (j = 0; j < SIZE; j++)
+        {
+            if (c == j)
+            {
+                s[j]++;
+            }
+        }
+        c = getc(arquivo);
+    }
 
- 
+//Cabeçalho
+    printf("%8s%12s%19s\n", "Elemento", "Valor", "Ocorrências");
 
-    for( j = 0 ; j < SIZE ; j++ ) {
+//Monta a tabela
+    for (j = 0; j < SIZE; j++)
+    {
+        if (s[j] != 0)
+        {
+            printf ("%8d%4c%5x%13d\n", j, j, j, s[j]);
+        }
+    }
+//Soma as ocorrências
+    for (j = 0; j < SIZE; j++)
+    {
         total += s[j];
     }
+    printf ("\n%8s%13d\n", "Total", total);
 
-    printf("%8s%13s\n", "Elemento", "Valor");
+//Fecha o arquivo
 
-    for( j = 0 ; j < SIZE ; j++ ) {
-        if (s[j] != 0)
-            printf("%8d%4c%5x%13d\n", j, j, j, s[j]);
-    }
+    fclose (arquivo);
 
-    printf("%8s%13d\n", "Total", total);
-
-    return EXIT_SUCCESS;
-}
+  }
