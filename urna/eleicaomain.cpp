@@ -47,8 +47,8 @@ int main (void){
 		cand[numero-1].um_voto();
 	}
 	arq.close();
-/****************urna****3*************************/
-	arq.open("urna1.txt", ios::in);
+/****************urna****4*************************/
+	arq.open("urna4.txt", ios::in);
 
 	while(!arq.eof()){
 		arq >> numero;
@@ -56,7 +56,9 @@ int main (void){
 	}
 	arq.close();
 /***************************************************/
-	
+	for(int i=0; i!=20; i++){
+		cout <<	cand[i].get_nome() << ": " << cand[i].get_partido() << ": " << cand[i].get_votos() << "votos\n";
+	}
 	
 return 0;
 }
