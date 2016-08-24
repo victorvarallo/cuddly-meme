@@ -1,0 +1,9 @@
+Legenda:
+
+PDR - Partido Da Roubalheira
+PFB - Partido Ficcional Brasileiro
+PI - Partido Inexistente
+PDM - Partido Dos Malucos
+PDP - Partido Dos Patos
+
+
