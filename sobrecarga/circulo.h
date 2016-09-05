@@ -3,7 +3,8 @@
 
 #define pi 3
 
-
+#include <sstream> 
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -28,6 +29,8 @@ class circulo{
 		void imprime_raio();
 		void imprime_centro();
 		void imprime_area();		
+
+		string ToString();
 };
 
 #endif
