@@ -25,12 +25,23 @@ class circulo{
 		void set_raio(int _raio);
 		void set_centro(int _x,int _y);
 
+  		int getX();
+  		int getY();
+    		int getRaio();
+
+  		void setX(int _x);
+  		void setY(int _y);
+ 		void setRaio(int _raio);
+
+
 		void aumenta_raio(int porcentagem);
 		void imprime_raio();
 		void imprime_centro();
 		void imprime_area();		
 
 		string ToString();
+
+		bool operator^(circulo &c);  //checar intersecção
 };
 
 #endif

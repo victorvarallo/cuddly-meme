@@ -43,6 +43,24 @@ void circulo::aumenta_raio(int porcentagem){
 
 
 }
+int circulo::getX(){
+  return x;
+}
+int circulo::getY(){
+  return y;
+}
+int circulo::getRaio(){
+  return raio;
+}
+void circulo::setX(int _x){
+  x=_x;
+}
+void circulo::setY(int _y){
+  y=_y;
+}
+void circulo::setRaio(int _raio){
+  raio=_raio;
+}
 void circulo::imprime_raio(){
 	cout << raio << endl;
 }
@@ -58,6 +76,7 @@ string circulo::ToString(){
 	convert << "Centro:(" << x <<"," << y << ")   Raio: " <<  raio << endl;
 	s = convert.str();
 	return s;
+
 }
 
 
