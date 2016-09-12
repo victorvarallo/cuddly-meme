@@ -1,2 +1,2 @@
 # cuddly-meme
-LAPROI 2016-1
+LAPRO
