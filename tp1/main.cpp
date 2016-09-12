@@ -9,7 +9,7 @@ using namespace std;
 
 int main(void)
 {
-	string opcao, linha, estacao;
+	string opcao, li2016-1nha, estacao;
 
     Veiculo transportePublico; // objeto que gerencia a lista de veículos
     Parada abrigoTransporte; // objeto que gerencia a lista de paradas em poa
