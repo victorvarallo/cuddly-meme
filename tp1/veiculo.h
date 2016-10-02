@@ -8,7 +8,7 @@ using namespace std;
 
 class veiculo{
 	private:                
-		int ID;
+		int id;
 		string nome;
 		string linha;
 		char tipo; // L=lotação ou O=ônibus
@@ -34,4 +34,5 @@ class veiculo{
 		listaparada get_lstParada();
 
 };
+
 #endif

@@ -1,39 +1,63 @@
-#include<veiculo.h>
+#include"veiculo.h"
+#include"parada.h"
+#include<iostream>
+#include<string>
 
+using namespace std;
 
 	/*Não Implementados:
 
-		int get_id();
-		string get_nome();
-		string get_linha();
-		char get_tipo();
+
 		veiculo get_prox();
 		listaparada get_lstParada();
 
 	*/
+Veiculo::Veiculo(){
+	ID = 0;
+	nome = "-1";
+	linha = "-1";
+	tipo = "-1";
 
-Veiculo::set_id(int){
-	id=int;
 }
 
-Veiculo::set_nome(string){
-	nome=string;
+int Veiculo::get_id(){
+	return id;
 }
 
-Veiculo::set_linha(string){
-	linha=string;
+string Veiculo::get_linha(){
+	return linha;
 }
 
-Veiculo::set_tipo(char){
-	tipo=char;
+string Veiculo::get_nome(){
+	return nome;
+}
+
+char Veiculo::get_tipo(){
+	return tipo;
+}
+
+void Veiculo::set_id(int _id){
+	id=_id;
+}
+
+void Veiculo::set_nome(string _nome){
+	nome=_nome;
+}
+
+void Veiculo::set_linha(string _linha){
+	linha=_linha;
+}
+
+void Veiculo::set_tipo(char _tipo){
+	tipo=_tipo;
 }
 
 //Não implementado
-Veiculo::set_prox(){
+void Veiculo::set_prox(){
 	
 }
 //Não Implementado
-Veiculo::set_lstParada(){
+void Veiculo::set_lstParada(){
 	
 }
 
