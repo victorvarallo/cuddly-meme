@@ -17,14 +17,15 @@ int main(void){	// lê do arquivo paradas.csv e guarda cada coluna em sua respec
 	char *cstr;
 	int tokcount=1;
 
-	int idparada;
-	float codigo, latitude, longitude;
+	int idparada,i=0;
+	float latitude, longitude;
+	float codigo;
 	char *terminal;
 
     parada* stop;
- //   parada lst[6000];
+    parada lst[6000];
 
-    arq.open("paradas.csv", ios::in);  //linha de cabecalho do arquivo nao foi contemplada
+    arq.open("paradas.csv", ios::in); 
 
     arq >> str;
 
@@ -41,7 +42,7 @@ int main(void){	// lê do arquivo paradas.csv e guarda cada coluna em sua respec
 
 				switch(tokcount){
 					case 1:tokcount++;
-							idparada = atoi(tokchar); //preencher no objeto nesta linha
+							stop -> set_ID(atoi(tokchar));  //idparada = atoi(tokchar); //preencher no objeto nesta linha
 							break;
 					case 2:tokcount++;
 							tokchar[0]=tokchar[5]=' ' ;
@@ -51,13 +52,13 @@ int main(void){	// lê do arquivo paradas.csv e guarda cada coluna em sua respec
 							for(int k=0; k<= 5;k++)
 								if(tokchar[k]==',')
 									tokchar[k]='.';
-							longitude = atof(tokchar); //preencher no objeto nesta linha
+							stop -> set_longitude(atof(tokchar));	//longitude = atof(tokchar);  //preencher no objeto nesta linha
 							break;
 					case 4:tokcount++;
 							for(int k=0; k<= 5;k++)
 								if(tokchar[k]==',')
 									tokchar[k]='.';
-							latitude = atof(tokchar);	//preencher no objeto nesta linha
+							stop -> set_latitude(atof(tokchar)); //latitude = atof(tokchar);	//preencher no objeto nesta linha
 							break;
 					default:tokcount = 1;
 							tokchar[0] = tokchar[2] = ' ';
@@ -66,6 +67,8 @@ int main(void){	// lê do arquivo paradas.csv e guarda cada coluna em sua respec
 				}
 				tokchar = strtok(NULL, ";");
 			}
+			lst[i] = *stop;
+			i++;
 	}
 
 
