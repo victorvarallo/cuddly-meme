@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int main(void){	// lê do arquivo paradas.csv e guarda cada coluna em sua respectiva variavel (int,float ou char)
+int main(void){	// l� do arquivo paradas.csv e guarda cada coluna em sua respectiva variavel (int,float ou char)
 
     ifstream arq;
 
@@ -23,9 +23,25 @@ int main(void){	// lê do arquivo paradas.csv e guarda cada coluna em sua respec
 	char *terminal;
 
     parada* stop;
-    parada lst[6000];
+    parada* lst;
 
     arq.open("paradas.csv", ios::in); 
+
+    arq >> str;
+
+    while(!arq.fail()){
+    i++;  
+    arq >> str;
+    if (str.c_str() == NULL) 
+        break;
+    }
+    
+    lst = new parada[i-1];    
+	i=0;	//vetor com lista de parada ja inicializado no tamanho do numero de linhas com variaveis
+
+    arq.close();
+
+    arq.open("paradas.csv", ios::in);
 
     arq >> str;
 
@@ -67,17 +83,22 @@ int main(void){	// lê do arquivo paradas.csv e guarda cada coluna em sua respec
 				}
 				tokchar = strtok(NULL, ";");
 			}
-			lst[i] = *stop;
-			i++;
+	lst[i] = *stop;	
+	i++;	
 	}
+    arq.close();
 
 
-	cout <<"idparada = "<< idparada << endl;
-	cout <<"codigo = "<< codigo << endl;
-	cout <<"longitude = "<< longitude << endl;
-	cout <<"latitude = "<< latitude << endl;
-	cout <<"terminal = "<< terminal << endl;
+	cout <<"idparada = "<< stop -> get_ID() << endl;
+	cout <<"codigo = "<< codigo << endl;    //codigo nao esta no obj
+	cout <<"longitude = "<< stop -> get_longitude() << endl;
+	cout <<"latitude = "<< stop -> get_latitude() << endl;
+	cout <<"terminal = "<< terminal << endl; //terminal nao esta no obj
+    cout << lst[1].get_ID() << endl;
+    cout << lst[1].get_latitude() << endl;
+    cout << lst[1].get_longitude() << endl;
 
+	//ISTA LST CRIADA COM i(5765) POSICOES ARMAZENANDO OBJETOS parada
 
 
     return 0;
