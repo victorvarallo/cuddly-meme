@@ -16,7 +16,7 @@ class estacao{
    	public:
 		estacao();
 
-		void set_id(int);
+		void set_ID(int);
 		void set_nome(string);
 		void set_latitude(float);
 		void set_longitude(float);
@@ -29,3 +29,4 @@ class estacao{
 		estacao get_prox();
 };
 #endif
+
