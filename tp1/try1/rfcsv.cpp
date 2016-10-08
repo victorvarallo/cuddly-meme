@@ -126,13 +126,13 @@ cout << "/*****************************************************/" <<endl;
 
 	file >> str;					//leitura da 1 linha(cabecalho)
 
-    while(!file.eof()){			//tratar i maior que numero de linhas do arquivo /////////////////////////////<<<--------------------------
-    i++;  
+ //   while(!file.eof()){			//tratar i maior que numero de linhas do arquivo /////////////////////////////<<<--------------------------
+   // i++;
+    for(i=0;i<1010;i++){  
     file >> str;
-    if (str.c_str() == NULL) 
-        break;
-    }
-	cout << i-1 << endl;    
+  //  if (str.c_str() == NULL) 
+    //    break; 
+     }  
     lstcarro = new veiculo[i-1];   
      
 	i=0;	//vetor com lista de parada ja inicializado no tamanho do numero de linhas com variaveis
@@ -143,13 +143,12 @@ cout << "/*****************************************************/" <<endl;
 
     file >> str;		//leitura da 1 linha(cabecalho)
 
-    while(!file.eof()){
+   // while(!file.eof()){
+    for(i=1;i<1010;i++){
    	carro = new veiculo();
-		file >> str;
-		
+		getline(file,str);
 		cstr = new char[str.length()+1];
 		strcpy(cstr, str.c_str());
-
 		tokchar = strtok(cstr,";");
 
 			while(tokchar != NULL){
@@ -159,8 +158,7 @@ cout << "/*****************************************************/" <<endl;
 							carro -> set_ID(atoi(tokchar));  //idcarro = atoi(tokchar); 
 							break;
 					case 2:tokcount++;
-						  	str = tokchar;
-							carro -> set_nome(str);	//nome do carro é uma string e tokchar e char
+							carro -> set_nome(tokchar);	//nome do carro é uma string e tokchar e char
 							break;
 					case 3:tokcount++;	//codigo --useless
 							break;
@@ -171,19 +169,19 @@ cout << "/*****************************************************/" <<endl;
 				}
 				tokchar = strtok(NULL, ";");
 			}
-	lstcarro[i] = *carro;	
-	i++;	
+	lstcarro[i-1] = *carro;	
+	//i++;	
 	}
     file.close();
 
 	cout <<"idlinha = "<< carro -> get_ID() << endl;
 	cout <<"nome = "<< carro -> get_nome() << endl;    
 	cout <<"tipo = "<< carro -> get_tipo() << endl;
-    cout<<"/*******************************************/"<<endl;
     cout << lstcarro[1].get_ID() << endl;
     cout << lstcarro[1].get_nome() << endl;
     cout << lstcarro[1].get_tipo() << endl;
 	
+    //CRIADO VETOR "lstcarro" COM 1010 ESPACOS ARMAZENANDO TODAS AS LINHAS DO ARQUIVO linhas.csv
 
     return 0;
 }
